@@ -12,7 +12,7 @@ def get_tickers():
     tickers = [ticker.upper() for ticker in tickers]
     index_sector = ['XLK', 'XLF', 'XLY', 'XLP', 'XLE', 'XLB', 'XLI', 'XLV', 'XLU']
     # get the tickers from the updated_stock_list.csv file and store them in a list
-    csvdf = pd.read_csv('updated_stock_list.csv')
+    csvdf = pd.read_csv('Updated_stock_list.csv')
     # get the tickers from the Ticker column and store them in a list
     csv_tickers = csvdf["Ticker "].tolist()
     tickers = tickers + index_sector + csv_tickers
