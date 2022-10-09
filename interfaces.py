@@ -60,7 +60,7 @@ if len(dropmenu) > 0:
     data = get_data(dropmenu)
     st.header("Relative Returns")
     # display charts with 1.5 width and center the x placement
-    st.plotly_chart(px.line(relative_return(data), width=1500, template='plotly_dark', title='Relative Returns'), use_container_width=True)
+    st.plotly_chart(px.line(relative_return(data), title = 'Relative Returns', labels = {'value': 'Relative Returns', 'variable': 'Date'}), use_container_width = True, width = 1.5)
     # use the get_news function to get the news for the tickers selected and display them
     news = get_news(dropmenu)
     for ticker in news:
