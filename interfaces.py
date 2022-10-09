@@ -5,6 +5,7 @@ import plotly.express as px
 
 # import plotly.graph_objects as go
 # get the tickers of commonly known stocks from the wedb and store them in a list all capitalized
+
 def get_tickers():
     df = pd.read_csv('https://raw.githubusercontent.com/datasets/s-and-p-500-companies/master/data/constituents.csv')
     tickers = df['Symbol'].tolist()
