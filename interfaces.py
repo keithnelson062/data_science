@@ -47,7 +47,9 @@ def get_news(tickers):
         company_name = company.info['longName']
 
     # use the requests module to get recent news based on the ticker data
-        url = f'https://newsapi.org/v2/everything?q={company_name}&from=2022-09-10&sortBy=publishedAt&apiKey=cead143d5bdf4446aa18a8a3a26b2607'
+        # get the current date: YYYY-MM-DD
+        today = pd.to_datetime('today').strftime('%Y-%m-%d') 
+        url = f'https://newsapi.org/v2/everything?q={company_name}&from={today}&sortBy=publishedAt&apiKey=cead143d5bdf4446aa18a8a3a26b2607'
         response = req.get(url)
         data = response.json()
         news.append(data)
@@ -60,6 +62,7 @@ if len(dropmenu) > 0:
     data = get_data(dropmenu)
     st.header("Relative Returns")
     # display charts with 1.5 width and center the x placement
+    # change plotly chart y axis title to relative returns
     st.plotly_chart(px.line(relative_return(data), title = 'Relative Returns', labels = {'value': 'Relative Returns', 'variable': 'Date'}), use_container_width = True, width = 1.5)
     # use the get_news function to get the news for the tickers selected and display them
     news = get_news(dropmenu)
@@ -69,4 +72,6 @@ if len(dropmenu) > 0:
 else:
     st.write('Select the stocks you want to analyze')
 
+
+    
 
