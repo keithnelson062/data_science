@@ -38,7 +38,7 @@ def get_data(ticker):
 
     data = yf.download(ticker, start = start_date, end = end_date)
     return data
-@st.cache
+
 def get_news(tickers):
     news = []
     for ticker in tickers:
